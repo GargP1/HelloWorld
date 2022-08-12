@@ -12,7 +12,6 @@ pipeline {
                 sh 'git clone https://github.com/GargP1/HelloWorld.git'
                 sh 'cd HelloWorld'
                 sh 'dotnet run --urls "http://0.0.0.0:5000" &'
-                sh 'sleep 600'
         	}
             }
         }
