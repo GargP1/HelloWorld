@@ -8,7 +8,8 @@ pipeline {
             steps {
                 echo '=== Connect to Server, Build and Deploy ==='
         	sshagent(credentials : ['ssh-to-server']) {
-                sh 'git clone https://github.com/GargP1/HelloWorld.git'
+                sh 'rm -rf Helloworld'
+                sh 'git clone https://github.com/GargP1/HelloWorld.git -b env.BRANCH_NAME'
                 sh 'cd Helloworld'
                 sh 'dotnet build'
                 sh 'dotnet run --urls "http://0.0.0.0:5000" &'
